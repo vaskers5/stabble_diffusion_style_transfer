@@ -30,12 +30,11 @@ def mixup_images(first_path: str, second_path: str, preprocess_background: bool 
         style_img = ImageProcessor.get_object_from_image(style_img)
 
     images_data = [content_img, style_img, content_text, style_text]
-    weights = [0.4, 0.4, 0.1, 0.1]
+    weights = [0.3, 0.5, 0.1, 0.1]
 
-    mix_res = MIX_MODEL.mix_images(images_data, weights, num_steps=300,
+    mix_res = MIX_MODEL.mix_images(images_data, weights, num_steps=350,
                                    batch_size=1, guidance_scale=5, h=768, w=768,
                                    sampler='p_sampler', prior_cf_scale=4, prior_steps="5")[0]
-
     if preprocess_background:
         mix_res = PostProcessor.post_processing(mix_res)
 
