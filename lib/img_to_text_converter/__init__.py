@@ -1,0 +1,1 @@
+from .img_to_text_converter import Img2TextConverter

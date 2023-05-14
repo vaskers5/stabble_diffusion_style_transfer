@@ -4,22 +4,27 @@ from PIL import Image
 from kandinsky2 import get_kandinsky2
 
 
-from lib.img_to_text_converter.img_to_text_converter import Img2TextConverter
-from lib.preprocessor.img_processor import ImageProcessor
-from lib.post_processor.post_processor import PostProcessor
+from lib.img_to_text_converter import Img2TextConverter
+from lib.preprocessor import ImageProcessor
+from lib.post_processor import PostProcessor
 
 
 def parse_args():
     parser = ArgumentParser()
-
     parser.add_argument('content_img', type=str, help='Path to content image')
     parser.add_argument('style_img', type=str, help='Path to style image')
-    # parser.add_argument('use_post_proc', default=True, help='Use post-processing or not')
-
     return parser.parse_args()
 
 
-def mixup_images(first_path: str, second_path: str, preprocess_background: bool = True) -> Image:
+def mixup_images(first_path: str,
+                 second_path: str,
+                 preprocess_background: bool = True
+                 ) -> Image:
+    """Combines whole pipeline:
+    1) Extract background from content and style images
+    2) Mixup images using kadinsky model
+    3) Remove background from 2)
+    4) Generate background using kadinsky in_painting"""
     content_img = Image.open(first_path)
     style_img = Image.open(second_path)
     content_text = Img2TextConverter.get_text_by_image(content_img)

@@ -1,3 +1,5 @@
+"""Simple module for image preprocessing"""
+
 from transparent_background import Remover
 from PIL import Image
 import numpy as np
