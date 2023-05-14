@@ -14,7 +14,7 @@ def parse_args():
 
     parser.add_argument('content_img', type=str, help='Path to content image', required=True)
     parser.add_argument('style_img', type=str, help='Path to style image', required=True)
-    parser.add_argument('use_post_proc', default=True, help='Use post-processing or not', required=False)
+    # parser.add_argument('use_post_proc', default=True, help='Use post-processing or not')
 
     return parser.parse_args()
 
@@ -46,5 +46,5 @@ MIX_MODEL = get_kandinsky2('cuda:0', task_type='text2img', model_version='2.1', 
 
 if __name__ == "__main__":
     args = parse_args()
-    result_image = mixup_images(args.content_img, args.style_img, args.use_post_proc)
+    result_image = mixup_images(args.content_img, args.style_img, True)
     result_image.save('result.jpeg')
