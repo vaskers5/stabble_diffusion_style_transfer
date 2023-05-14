@@ -32,6 +32,7 @@ pytorch >=1.6.0 builds with cuda support
 ### Installation:
 
 ```bash
+pip3 install torch torchvision torchaudio
 pip install -r requirements.txt
 pip install transformers -U
 ```
