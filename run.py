@@ -12,8 +12,8 @@ from lib.post_processor.post_processor import PostProcessor
 def parse_args():
     parser = ArgumentParser()
 
-    parser.add_argument('content_img', type=str, help='Path to content image', required=True)
-    parser.add_argument('style_img', type=str, help='Path to style image', required=True)
+    parser.add_argument('content_img', type=str, help='Path to content image')
+    parser.add_argument('style_img', type=str, help='Path to style image')
     # parser.add_argument('use_post_proc', default=True, help='Use post-processing or not')
 
     return parser.parse_args()
