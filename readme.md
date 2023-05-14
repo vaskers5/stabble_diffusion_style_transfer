@@ -13,6 +13,8 @@
 
 
 ### Используя пайплайн:
+
+![Гигачад + Шрек](results/shrek_preproc.jpg)
 ![Боромир + вазовски](results/with_preproc.jpg)
 
 
@@ -24,8 +26,6 @@
 
 ### Installation:
 
-### [Colab work example](https://colab.research.google.com/drive/1he4r_R_bJ5BV5KhidlohFtVN2MtgnLaS?usp=sharing)
-
 ### PreRequirements:
 pytorch >=1.6.0 builds with cuda support
 
@@ -33,6 +33,7 @@ pytorch >=1.6.0 builds with cuda support
 
 ```bash
 pip install -r requirements.txt
+pip install transformers -U
 ```
 
 ### Testing locally
