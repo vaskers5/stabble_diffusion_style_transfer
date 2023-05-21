@@ -1,4 +1,3 @@
 git+https://github.com/ai-forever/Kandinsky-2.git
-transparent-background
-transformers
+transparent-background==1.2.3
 git+https://github.com/openai/CLIP.git
